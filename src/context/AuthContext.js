@@ -3,6 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import firebase_app from "../firebase/config";
 import Spinner from "@/app/_components/spinner";
+import Loading from "@/app/loading";
 
 const auth = getAuth(firebase_app);
 
@@ -30,7 +31,8 @@ export const AuthContextProvider = ({ children }) => {
     <AuthContext.Provider value={{ user }}>
       {loading ? (
         <div>
-          <Spinner />
+          {/* <Spinner /> */}
+          <Loading />
         </div>
       ) : (
         children
